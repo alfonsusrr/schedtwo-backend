@@ -1,12 +1,17 @@
-import express, {Router, Request, Response} from "express"
-import dbConnect from '../../backend/db/mongoose'
+const express = require('express');
+const router = express.Router();
+const taskController = require('../controllers/taskController');
 
-export const taskRoute = Router();
+//import task CRUD operation from controllers
+const {
+    getTasks,
+    setTasks,
+    updateTask,
+    deleteTask,
+} = require('../controllers/taskController');
 
-taskRoute.post('/tasks', (req: Request, res: Response) => {
-    res.send("Hello!")
-})
+router.route('/').get(getTasks).post(setTasks);
+router.route('/:id').put(updateTask).delete(deleteTask);
 
-taskRoute.get('/tasks/', (req: Request, res:Response) => {
-    res.send("Hello!")
-})
+module.exports = router;
+
