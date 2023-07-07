@@ -6,9 +6,8 @@ const dbConnect = async () => {
         console.error("Error: Empty database URL")
         return
     } else {
-        console.log(connectionURL)
         connect(connectionURL)
     }
 }
 
-export default dbConnect
+module.exports = dbConnect

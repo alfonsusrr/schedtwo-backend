@@ -17,8 +17,7 @@ const dbConnect = () => __awaiter(void 0, void 0, void 0, function* () {
         return;
     }
     else {
-        console.log(connectionURL);
         (0, mongoose_1.connect)(connectionURL);
     }
 });
-exports.default = dbConnect;
+module.exports = dbConnect;

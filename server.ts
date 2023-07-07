@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
-import { routes } from './routes'
+const taskRoute = require("./routes/taskRoute")
 
 dotenv.config();
 
@@ -16,7 +16,7 @@ const port = process.env.PORT;
 //   dbConnect();
 // })
 
-app.use('/', routes)
+app.use('/task', taskRoute)
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
