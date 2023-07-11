@@ -10,6 +10,14 @@ const getTasks = asyncHandler(async (req, res) => {
     res.status(200).json(tasks);
 });
 
+// @desc    Fetch task by id
+// @route   GET /api/tasks/:id
+// @access  Public
+const getTasksID = asyncHandler(async (req, res) => {
+    const tasks = await Task.findById(req.params.id);
+    res.status(200).json(tasks);
+});
+
 
 // @desc    Create single task
 // @route   POST /api/tasks
@@ -72,4 +80,5 @@ module.exports = {
     setTasks,
     updateTask,
     deleteTask,
+    getTasksID,
 }
